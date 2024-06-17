@@ -29,3 +29,27 @@ function getHumanChoice() {
     }
 
 }
+
+// Declare players score variables
+let humanScore = 0;
+let computerScore = 0;
+
+
+// Write logic to play a single round
+function playRound() {
+    humanChoice = getHumanChoice()
+    computerChoice = getComputerChoice()
+    console.log(`Computer chooses: ${computerChoice}`)
+
+    if (humanChoice == "Rock" && computerChoice == "Paper") {
+        console.log("You lose! Paper beats Rock.");
+        computerScore = computerScore + 1;
+    } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
+        console.log("You win! Rock beats Scissors.");
+        humanScore = humanScore + 1;
+    } else if (humanChoice == computerChoice) {
+        console.log("It's a draw!")
+    }
+
+
+}
