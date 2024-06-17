@@ -13,3 +13,19 @@ function getComputerChoice() {
     }
 
 }
+
+
+function getHumanChoice() {
+    let mychoice = prompt("Please enter: Rock, Paper, or Scissors.")
+
+    if (mychoice.toLowerCase() == "rock") {
+        return "Rock"
+    } else if (mychoice.toLowerCase() == "paper") {
+        return "Paper"
+    } else if (mychoice.toLowerCase() == "scissors") {
+        return "Scissors"
+    } else {
+        console.log("Invalid choice, please try again.");
+    }
+
+}
