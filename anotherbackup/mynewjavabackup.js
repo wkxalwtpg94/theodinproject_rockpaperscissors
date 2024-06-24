@@ -31,7 +31,6 @@ function getHumanChoice(mychoice) {
 
 let humanScore = 0;
 let computerScore = 0;
-let round_number = 1;
 
 
 // Write logic to play a single round
@@ -57,42 +56,35 @@ function playRound(humanChoice, computerChoice) {
         console.log("You lose! Paper beats Rock.");
         computerScore = computerScore + 1;
         div_element_two.textContent = "You Lose! Paper Beats Rock."
-        round_number = round_number + 1
 
     } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
         console.log("You win! Rock beats Scissors.");
         humanScore = humanScore + 1;
         div_element_two.textContent = "You win! Rock beats Scissors."
-        round_number = round_number + 1
 
     } else if (humanChoice == computerChoice) {
         console.log("It's a draw!")
         div_element_two.textContent = "It's a draw!"
-        round_number = round_number + 1
 
     } else if (humanChoice == "Paper" && computerChoice == "Rock") {
         console.log("You win! Paper beats Rock.");
         humanScore = humanScore + 1;
         div_element_two.textContent = "You win! Paper beats Rock."
-        round_number = round_number + 1
 
     } else if (humanChoice == "Paper" && computerChoice == "Scissors") {
         console.log("You lose! Scissors beats Paper.");
         computerScore = computerScore + 1;
         div_element_two.textContent = "You lose! Scissors beats Paper."
-        round_number = round_number + 1
 
     } else if (humanChoice == "Scissors" && computerChoice == "Rock") {
         console.log("You lose! Rock beats Scissors.");
         computerScore = computerScore + 1;
         div_element_two.textContent = "You lose! Rock beats Scissors."
-        round_number = round_number + 1
 
     } else if (humanChoice == "Scissors" && computerChoice == "Paper") {
         console.log("You win! Scissors beats Paper.");
         humanScore = humanScore + 1;
         div_element_two.textContent = "You win! Scissors beats Paper."
-        round_number = round_number + 1
     }
 }
 
@@ -101,29 +93,14 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        const mainbody = document.querySelector("body")
-        if (round_number <6) {
-        // prints the round number
-        const round_number_element = document.createElement("div")
-        mainbody.appendChild(round_number_element)
-        round_number_element.textContent = `Round Number: ${round_number}`
-        
-
-        // gets the Human Selection
         let humanSelection = getHumanChoice((button.textContent.toLowerCase()).trim());
         let computerSelection = getComputerChoice();
         
         playRound(humanSelection,computerSelection)
         
         countScore()
-        mainbody.appendChild(document.createElement("br"))
-        
-        } else {
-            let finished_game = document.createElement("div");
-            finished_game.textContent = "Game is finished, Refresh to play again!"
-            mainbody.appendChild(finished_game)
 
-        }
+
     });
 });
 
@@ -135,12 +112,21 @@ function countScore() {
     mainbody.appendChild(div_element_three)
     mainbody.appendChild(div_element_four)
 
+    for (let i = 0; i < 5 ; i++) {
         
         div_element_three.textContent = `Current Score: You: ${humanScore}, Computer: ${computerScore}`
-
     }
 
- 
+    if (humanScore > computerScore) {
+        div_element_four.textContent = "You are the winner!";
+    } else if (computerScore > humanScore) {
+        div_element_four.textContent = "Computer is the winner!";
+    } else {
+        div_element_four.textContent = "It's a tie!"
+    }
+
+
+}
 
 
 
