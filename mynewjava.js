@@ -15,9 +15,9 @@ function getComputerChoice() {
 }
 
 
-function getHumanChoice() {
-    let mychoice = prompt("Please enter: Rock, Paper, or Scissors.")
-
+function getHumanChoice(mychoice) {
+    
+    console.log(mychoice)
     if (mychoice.toLowerCase() == "rock") {
         return "Rock"
     } else if (mychoice.toLowerCase() == "paper") {
@@ -38,7 +38,7 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice) {
     
     console.log(`Computer chooses: ${computerChoice}`)
-
+    console.log(`You choose ${humanChoice}`)
     if (humanChoice == "Rock" && computerChoice == "Paper") {
         console.log("You lose! Paper beats Rock.");
         computerScore = computerScore + 1;
@@ -62,7 +62,7 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-
+/*
 function playGame() {
     
     
@@ -85,3 +85,18 @@ function playGame() {
     }
  
 }
+
+*/
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        let humanSelection = getHumanChoice((button.textContent.toLowerCase()).trim());
+        let computerSelecton = getComputerChoice();
+        playRound(humanSelection, computerSelecton);
+        
+
+    });
+});
+
