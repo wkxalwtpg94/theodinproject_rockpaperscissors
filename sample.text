@@ -1,0 +1,28 @@
+logic
+
+
+
+getplayerchoice()
+    this is from the buttons
+
+getComputerChoice()
+    same as before
+
+
+playRound()
+    getscomputerChoicehere
+    implement all the conditional logic
+    DOM creates who is the winner of that particular round
+
+checkScore()
+    DOM creates Score element
+
+
+
+button(EventListener)
+    if currentround < maxround:
+   
+        playRound(button.value, i.e player choice)
+
+    else if currentround > maxround:
+        Domcreate game ends
